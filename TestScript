@@ -1,0 +1,22 @@
+! Proactive diagnostic technology Call-Home will email administrator if an issue occurs on the ASA
+! Documentation: http://www.cisco.com/en/US/docs/security/asa/asa83/configuration/guide/monitor_smart_call_home.html
+!
+service call-home
+call-home
+ contact-email-addr cdechristopher@flightexplorer.com
+ contact-name Carmen_DeChristopher
+ phone-number 609-601-7021
+ sender from cdechristopher@flightexplorer.com
+ sender reply-to cdechristopher@flightexplorer.com
+ mail-server 10.1.250.51 priority 1
+ profile CiscoTAC-1
+  destination address http https://tools.cisco.com/its/service/oddce/services/DDCEService
+  destination address email callhome@cisco.com
+  destination address email cdechristopher@flightexplorer.com
+  destination preferred-msg-format long-text
+  destination transport-method email
+  subscribe-to-alert-group diagnostic
+  subscribe-to-alert-group environment
+  subscribe-to-alert-group inventory periodic monthly
+  subscribe-to-alert-group configuration periodic monthly
+  subscribe-to-alert-group telemetry periodic daily
