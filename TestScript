@@ -20,3 +20,5 @@ call-home
   subscribe-to-alert-group inventory periodic monthly
   subscribe-to-alert-group configuration periodic monthly
   subscribe-to-alert-group telemetry periodic daily
+
+  !Changes made by Patrick Lloyd, patrick.lloyd@gmail.com
